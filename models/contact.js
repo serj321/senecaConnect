@@ -8,7 +8,7 @@ const ContactSchema = new Schema({
     },
     title: {
         type: String,
-        enum: ['Staff', 'Student'],
+        enum: ["Staff", "Student"],
         required: true
     },
     email: {

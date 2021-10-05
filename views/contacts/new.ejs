@@ -1,0 +1,56 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mt-5 col-md-6 offset-md-3">
+            <div class="card-header">
+                <h2>Create a New Contact</h1>
+            </div>
+            <div class="card-body">
+                <form action="/contacts" method="POST" novalidate class="needs-validation">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name*</label>
+                        <input type="text" class="form-control" id="name" name="contact[name]" required>
+                        <div class="invalid-feedback">
+                            Invalid Input!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title*</label>
+                        <select class="form-select" id="title" name="contact[title]" >
+                            <% for( let title of titles) {%>
+                                <option value="<%=title%>"><%=title%></option>
+                            <% }%>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email*</label>
+                        <input type="text" class="form-control" id="email" name="contact[email]" required>
+                        <div class="invalid-feedback">
+                            Invalid Input!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="phoneNumber" name="contact[phoneNumber]">
+                    </div>
+                    <div class="mb-3">
+                        <label for="studentNumber" class="form-label">Student Number</label>
+                        <input type="text" class="form-control" id="studentNumber" name="contact[studentNumber]">
+                    </div>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Program</label>
+                        <select class="form-select" id="title" name="contact[program]">
+                            <% for( let program of programs) {%>
+                                <option value="<%=program%>"><%=program%></option>
+                            <% }%>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn white-text">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <a href="/contacts">All Contacts</a>
+    </div>
+</div>
