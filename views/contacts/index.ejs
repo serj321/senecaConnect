@@ -17,6 +17,14 @@
             <td><%=person.program%></td>
             <td><%=person.email%></td>
             <td><%=person.phoneNumber%></td>
+            <td>
+                <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+            <td>
+                <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
+            </td>
         </tr>
         <% } %> 
     </table>
