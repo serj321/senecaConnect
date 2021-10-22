@@ -1,30 +1,43 @@
 <% layout('layouts/boilerplate')%>
 
 <h1>All Contacts</h1>
-    <a href="/contacts/new">New Contact</a>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Title</th>
-            <th>Program</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-        </tr>
-        <% for(person of people) { %> 
-        <tr>
-            <td><%=person.name%></td>
-            <td><%=person.title%></td>
-            <td><%=person.program%></td>
-            <td><%=person.email%></td>
-            <td><%=person.phoneNumber%></td>
-            <td>
-                <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-            <td>
-                <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
-            </td>
-        </tr>
-        <% } %> 
-    </table>
+<a href="/contacts/new">New Contact</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col-md-9">
+            <table class="table">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Program</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col"></th>
+                </tr>
+                <% for(person of people) { %> 
+                <tr>
+                    <td scope="row"><%=person.name%></td>
+                    <td><%=person.title%></td>
+                    <td><%=person.program%></td>
+                    <td><%=person.email%></td>
+                    <td><%=person.phoneNumber%></td>
+                    <td>
+                        <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                        <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
+                    </td>
+                </tr>
+                <% } %> 
+            </table>
+        </div>
+    </div>
+</div>

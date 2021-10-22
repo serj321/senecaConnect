@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/contacts', async (req, res) => {
-    const people = await Contact.find({});
+    const people = await Contact.find();
     res.render('contacts/index', { people } );
 })
 
