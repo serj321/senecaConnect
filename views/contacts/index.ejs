@@ -5,12 +5,33 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <form action="/contacts/filtered" method="GET">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" name="titleFilter" aria-label="Default select example">
+                        <option selected>Select a Title</option>
+                        <option value="Student">Student</option>
+                        <option value="Staff">Staff</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" name="programFilter" aria-label="Default select example">
+                        <option selected>Select a Program</option>
+                        <option value="Computer Engineering Technology">Computer Engineering Technology</option>
+                        <option value="Civil Engineering Technology">Civil Engineering Technology</option>
+                        <option value="Electronics Engineering Technology">Electronics Engineering Technology</option>
+                        <option value="Electrical Engineering Technology">Electrical Engineering Technology</option>
+                        <option value="Mechanical Engineering Technology">"Mechanical Engineering Technology</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" class="btn">Filter</button>
+                </div>
+            </form>
+            <a href="/contacts">Clear Filters</a>
         </div>
         <div class="col-md-9">
             <table class="table">
