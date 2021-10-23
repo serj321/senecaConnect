@@ -7,6 +7,7 @@ const Contact = require('./models/contact');
 const titles = require('./pageHelpers/titles');
 const programs = require('./pageHelpers/programs');
 const methodOverride = require('method-override');
+const { title } = require('process');
 
 mongoose.connect('mongodb://localhost:27017/seneca-connect-contacts', {
     useNewURLParser: true,
@@ -33,6 +34,9 @@ app.get('/', (req, res) => {
 })
 
 app.get('/contacts', async (req, res) => {
+    var query = {};
+    const titleSample = "Serj Sililian";
+    query["name"] = titleSample;
     const people = await Contact.find();
     res.render('contacts/index', { people } );
 })
@@ -44,6 +48,30 @@ app.get('/contacts/new', (req,res) => {
 app.get('/contacts/:id/edit', async(req, res) => {
     const contact = await Contact.findById(req.params.id)
     res.render('contacts/edit', {contact, titles, programs});
+})
+
+app.get('/contacts/filtered', async(req, res) =>{
+    console.log(req.query);
+    var title, name, program;
+    var query = {};
+    if(req.query.titleFilter != "Select a Title"){
+        title = req.query.titleFilter;
+        console.log(title);
+        query["title"] = title;
+    }
+    if(req.query.programFilter != "Select a Program"){
+        program = req.query.programFilter;
+        console.log(program);
+        query["program"] = program;
+    }
+    if(req.query.name)
+    {
+        console.log("there is a name!");
+        name = req.query.name
+        query["name"] = name;
+    }
+    const people = await Contact.find(query);
+    res.render('contacts/index', { people })
 })
 
 app.post('/contacts', async(req, res) =>{
