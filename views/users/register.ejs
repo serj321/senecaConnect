@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card mt-5 col-md-8 offset-md-2">
+            <div class="card-header">
+                <h2>Register</h1>
+            </div>
+            <div class="card-body">
+                <form action="/register" method="POST" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Email*</label>
+                        <input type="email" class="form-control" id="username" name="username" required>
+                        <div class="invalid-feedback">
+                            Invalid Input!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                        <div class="invalid-feedback">
+                            Invalid Input!
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="isAdmin" class="form-label">Admin Permissions:</label>
+                        <select class="form-select" id="isAdmin" name="isAdminStr" >
+                            <option value="false">Not Admin</option>
+                            <option value="true">Is Admin</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+        <a href="/contacts">Cancel</a>
+    </div>
+</div>
