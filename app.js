@@ -108,11 +108,6 @@ app.get('/contacts/new', isLoggedIn, isUserAdmin, (req,res) => {
     res.render('contacts/new', {titles, programs});
 })
 
-// app.get('/fakeUser', async(req, res) => {
-//     const user = new User({ email: 'ssililian@myseneca.ca', username: "serj", isAdmin: true});
-//     const newUser = await User.register(user, 'fluffy');
-//     res.send(newUser);
-// })
 
 app.get('/contacts/:id/edit', isUserAdmin, async(req, res) => {
     const contact = await Contact.findById(req.params.id)
