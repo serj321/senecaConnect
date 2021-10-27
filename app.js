@@ -68,7 +68,6 @@ app.get('/register', (req, res) =>{
 //Creates a new account and then redirects to contacts
 app.post('/register', async(req, res) =>{
     const {username, password, isAdminStr} = req.body;
-    console.log(isAdminStr);
     var isAdmin = (isAdminStr === "true");
     const user = new User({username, isAdmin});
     const registeredUser = await User.register(user, password);
@@ -88,7 +87,6 @@ app.get('/login', (req, res) => {
 
 //Logs in user
 app.post('/login', passport.authenticate('local', { failureFlash: false, failureRedirect: '/login'}), (req, res) => {
-    console.log("hello");
     res.redirect('/contacts');
 })
 
