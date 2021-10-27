@@ -40,6 +40,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Program</label>
                         <select class="form-select" id="title" name="contact[program]">
+                            <option value="">(none)</option>
                             <% for( let program of programs) {%>
                                 <option value="<%=program%>"><%=program%></option>
                             <% }%>
