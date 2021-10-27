@@ -33,35 +33,37 @@
             <a href="/contacts">Clear Filters</a>
         </div>
         <div class="col-md-9">
-            <table class="table">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Program</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone Number</th>
-                    <%if(currentUser.isAdmin){%>
-                    <th scope="col"></th>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Program</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <%if(currentUser.isAdmin){%>
+                        <th scope="col"></th>
+                        <% } %> 
+                    </tr>
+                    <% for(person of people) { %> 
+                    <tr>
+                        <td scope="row"><%=person.name%></td>
+                        <td><%=person.title%></td>
+                        <td><%=person.program%></td>
+                        <td><%=person.email%></td>
+                        <td><%=person.phoneNumber%></td>
+                        <%if(currentUser.isAdmin){%>
+                        <td>
+                            <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                            <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
+                        </td>
+                        <% } %> 
+                    </tr>
                     <% } %> 
-                </tr>
-                <% for(person of people) { %> 
-                <tr>
-                    <td scope="row"><%=person.name%></td>
-                    <td><%=person.title%></td>
-                    <td><%=person.program%></td>
-                    <td><%=person.email%></td>
-                    <td><%=person.phoneNumber%></td>
-                    <%if(currentUser.isAdmin){%>
-                    <td>
-                        <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                        <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
-                    </td>
-                    <% } %> 
-                </tr>
-                <% } %> 
-            </table>
+                </table>
+            </div>
         </div>
     </div>
 </div>
