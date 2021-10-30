@@ -1,26 +1,22 @@
-    .navbar{
+    .navbar {
         background-color: #DA291C;
     }
-
-    .btn{
+    
+    .btn {
         background-color: #DA291C !important;
         color: #fff !important;
     }
     
-    
-    .Input{
+    .Input {
         position: absolute;
-        left:20%;
-        width:250px;
+        left: 20%;
+        width: 250px;
     }
     
-    .LblInput{
+    .LblInput {
         position: absolute;
         font-size: 1.5em;
-        left:20%;
+        left: 20%;
         padding-bottom: 40px;
         margin: 0px 0px 20px 0;
-
     }
-
-  

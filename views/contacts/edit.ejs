@@ -1,8 +1,6 @@
 <% layout('layouts/boilerplate')%>
-
-<div class="row">
-    <div class="col-6 offset-3">
-        <div class="card mt-5 col-md-8 offset-md-2">
+    <div class="container">
+        <div class="card mt-5 col-md-6 offset-md-3">
             <div class="card-header">
                 <h2>Edit Contact</h1>
             </div>
@@ -17,11 +15,12 @@
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title*</label>
-                        <select class="form-select" id="title" name="contact[title]" >
-                            <% for( let title of titles) {%>
-                                <option value="<%=title%>" <%= contact.title === title ? 'selected': ''%>><%=title%></option>
-                            <% }%>
-                        </select>
+                        <select class="form-select" id="title" name="contact[title]">
+                        <% for( let title of titles) {%>
+                            <option value="<%=title%>" <%=contact.title===title ? 'selected' : '' %>><%=title%>
+                            </option>
+                        <% }%>
+                    </select>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email*</label>
@@ -41,10 +40,12 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Program</label>
                         <select class="form-select" id="title" name="contact[program]">
-                            <% for( let program of programs) {%>
-                                <option value="<%=program%>" <%= contact.program === program ? 'selected': ''%>><%=program%></option>
-                            <% }%>
-                        </select>
+                        <% for( let program of programs) {%>
+                            <option value="<%=program%>" <%=contact.program===program ? 'selected' : '' %>>
+                                <%=program%>
+                            </option>
+                        <% }%>
+                    </select>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <button type="submit" class="btn white-text">Update</button>
@@ -54,4 +55,3 @@
         </div>
         <a href="/contacts">All Contacts</a>
     </div>
-</div>
