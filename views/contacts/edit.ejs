@@ -16,11 +16,10 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Title*</label>
                         <select class="form-select" id="title" name="contact[title]">
-                        <% for( let title of titles) {%>
-                            <option value="<%=title%>" <%=contact.title===title ? 'selected' : '' %>><%=title%>
-                            </option>
-                        <% }%>
-                    </select>
+                            <% for( let title of titles) {%>
+                                <option value="<%=title%>" <%=contact.title===title ? 'selected' : '' %>><%=title%></option>
+                            <% }%>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email*</label>
@@ -40,12 +39,11 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Program</label>
                         <select class="form-select" id="title" name="contact[program]">
-                        <% for( let program of programs) {%>
-                            <option value="<%=program%>" <%=contact.program===program ? 'selected' : '' %>>
-                                <%=program%>
-                            </option>
-                        <% }%>
-                    </select>
+                            <option value="">(none)</option>
+                            <% for( let program of programs) {%>
+                                <option value="<%=program%>" <%=contact.program===program ? 'selected' : '' %>><%=program%></option>
+                            <% }%>
+                        </select>
                     </div>
                     <div class="d-grid gap-2 col-6 mx-auto">
                         <button type="submit" class="btn white-text">Update</button>
