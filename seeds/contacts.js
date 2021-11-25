@@ -1,3 +1,4 @@
+//this is the sample data which is populated into the database if we use the seed.
 module.exports = [
     {
         name: "Vishesh Mendiratta",
