@@ -1,3 +1,4 @@
+<!--Sends this page to the boilerplate-->
 <% layout('layouts/boilerplate')%>
     <div class="container">
         <div class="card mt-5 col-md-6 offset-md-3">
@@ -5,6 +6,7 @@
                 <h2>Edit Contact</h2>
             </div>
             <div class="card-body">
+                <!--When the form is submited it does a method override to send a PUT request to the server-->
                 <form action="/contacts/<%=contact._id%>?_method=PUT" method="POST" novalidate class="needs-validation">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name*</label>
@@ -16,6 +18,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Title*</label>
                         <select class="form-select" id="title" name="contact[title]">
+                            <!--Iterates through titles to dynamically populate the drop down with titles provided in the pageHelpers folder-->
                             <% for( let title of titles) {%>
                                 <option value="<%=title%>" <%=contact.title===title ? 'selected' : '' %>><%=title%></option>
                             <% }%>
@@ -40,6 +43,7 @@
                         <label for="title" class="form-label">Program</label>
                         <select class="form-select" id="title" name="contact[program]">
                             <option value="">(none)</option>
+                            <!--Iterates through titles to dynamically populate the drop down with programs provided in the pageHelpers folder-->
                             <% for( let program of programs) {%>
                                 <option value="<%=program%>" <%=contact.program===program ? 'selected' : '' %>><%=program%></option>
                             <% }%>

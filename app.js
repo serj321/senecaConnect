@@ -55,6 +55,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(express.urlencoded({ extended: true }));
+
+//sets up method override so different HTTP verbs can be used like 
 app.use(methodOverride('_method'));
 
 app.use(express.static(__dirname) );
@@ -69,7 +71,7 @@ app.use((req, res, next) => {
 
 //takes the user to the home page
 app.get('/', (req, res) => {
-    res.render('home')
+    res.redirect('/contacts');
 })
 
 //Directs to the register page

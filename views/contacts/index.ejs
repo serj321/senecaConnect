@@ -1,9 +1,12 @@
+<!--Sends this page to the boilerplate-->
+
 <% layout('layouts/boilerplate')%>
 
 <h1>All Contacts</h1>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
+            <!--Sends a get requested to filter out contacts based on specific criteria-->
             <form action="/contacts/filtered" method="GET">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -45,6 +48,7 @@
                         <th scope="col"></th>
                         <% } %> 
                     </tr>
+                    <!--dynamically load results from database provided by the server-->
                     <% for(person of people) { %> 
                     <tr>
                         <td scope="row"><%=person.name%></td>
@@ -52,11 +56,14 @@
                         <td><%=person.program%></td>
                         <td><%=person.email%></td>
                         <td><%=person.phoneNumber%></td>
+                        <!--Display the delete and edit button if the currently signed in user is an admin-->
                         <%if(currentUser.isAdmin){%>
                         <td>
+                            <!--Sends a delete request to teh server to delete a contact-->
                             <form class="d-inline" action="/contacts/<%=person._id%>?_method=DELETE" method="POST">
                                 <button class="btn btn-danger">Delete</button>
                             </form>
+                            <!--a button to allow the admin to go to an edit page for that specific contact-->
                             <a class="btn btn-info" href="/contacts/<%=person._id%>/edit">Edit</a>
                         </td>
                         <% } %> 

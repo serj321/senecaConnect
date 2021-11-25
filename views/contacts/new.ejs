@@ -1,3 +1,4 @@
+<!--Sends this page to the boilerplate-->
 <% layout('layouts/boilerplate')%>
     <div class="container">
         <div class="card mt-5 col-md-6 offset-md-3">
@@ -5,6 +6,7 @@
                 <h2>Create a New Contact</h2>
             </div>
             <div class="card-body">
+                <!--When the form is submited it sends a POST request to the server to create a new contact-->
                 <form action="/contacts" method="POST" novalidate class="needs-validation">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name*</label>
@@ -16,6 +18,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Title*</label>
                         <select class="form-select" id="title" name="contact[title]" >
+                            <!--Iterates through titles to dynamically populate the drop down with titles provided in the pageHelpers folder-->
                             <% for( let title of titles) {%>
                                 <option value="<%=title%>"><%=title%></option>
                             <% }%>
@@ -40,6 +43,7 @@
                         <label for="title" class="form-label">Program</label>
                         <select class="form-select" id="title" name="contact[program]">
                             <option value="">(none)</option>
+                            <!--Iterates through titles to dynamically populate the drop down with programs provided in the pageHelpers folder-->
                             <% for( let program of programs) {%>
                                 <option value="<%=program%>"><%=program%></option>
                             <% }%>

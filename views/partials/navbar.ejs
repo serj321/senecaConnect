@@ -1,3 +1,4 @@
+<!--This is a navbar partial which will be called in the boilerplate which reflects on each page-->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
         <h1 class="navbar-brand">Seneca Connect</h1>
@@ -7,14 +8,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
+                <!--checks if there is a currentUser (this is added in the middleware once someone is authenticated)
+                    to the display ceryain buttons in the navigation bar.
+                -->
                 <% if(currentUser) { %> 
                 <a class="nav-link" href="/contacts">Contacts</a>
+                <!--checks if the current user is an admin to then display admin functionoality.-->
                 <%if(currentUser.isAdmin){%>
                 <a class="nav-link" href="/contacts/new">New Contact</a>
                 <%}%>
                 <%}%>
             </div>
             <div class="navbar-nav ms-auto">
+                <!--If there is no user logged in display the login and register buttons, if there is a user
+                display the logout button.
+                -->
                 <% if(!currentUser) {%>
                 <a class="nav-link" href="/login">Login</a>
                 <a class="nav-link" href="/register">Register</a>
