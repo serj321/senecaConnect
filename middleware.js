@@ -1,4 +1,4 @@
-//checks if someone is logged in mby checking the .isAuthenticated() method that is automatically
+//checks if someone is logged in by checking the .isAuthenticated() method that is automatically
 //added to the req parameter by passport
 module.exports.isLoggedIn = (req, res, next) =>{
     if(!req.isAuthenticated()){
