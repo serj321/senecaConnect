@@ -13,7 +13,8 @@ const User = require('./models/user');
 const session = require('express-session');
 const {isLoggedIn, isUserAdmin} = require('./middleware');
 
-//connects to local database
+//Connects to local database, if no database exists that has this name
+//it will create one.
 mongoose.connect('mongodb://localhost:27017/seneca-connect-contacts', {
     useNewURLParser: true,
     useUnifiedTopology: true
@@ -74,7 +75,7 @@ app.get('/', (req, res) => {
     res.redirect('/contacts');
 })
 
-//Directs to the register page
+//Renders the register page to the user
 app.get('/register', (req, res) =>{
     res.render('users/register');
 })
@@ -94,7 +95,7 @@ app.post('/register', async(req, res) =>{
     res.redirect('/contacts');
 })
 
-//Provides login form
+//Renders login form to user
 app.get('/login', (req, res) => {
     res.render('users/login');
 })
