@@ -130,23 +130,19 @@ app.get('/contacts/:id/edit', isLoggedIn, isUserAdmin, async (req, res) => {
 
 //uses parameters provided by the user to dynamically build a mongoose query to return the results
 //that the user is looking for
-app.get('/contacts/filtered', isLoggedIn, async(req, res) =>{
-    console.log(req.query);
+app.get('/contacts/filtered', isLoggedIn, async (req, res) => {
     var title, name, program;
     var query = {};
     if(req.query.titleFilter != "Select a Title"){
         title = req.query.titleFilter;
-        console.log(title);
         query["title"] = title;
     }
     if(req.query.programFilter != "Select a Program"){
         program = req.query.programFilter;
-        console.log(program);
         query["program"] = program;
     }
     if(req.query.name)
     {
-        console.log("there is a name!");
         name = req.query.name
         query["name"] = name;
     }
